@@ -16,3 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/home/{name?}/{surname?}', function ($n = "Alberto", $s = "Sánchez") {
+
+    // return view('home')
+    //     ->with("name", $n)
+    //     ->with("surname", $s);
+
+    return view('home', [
+        'name' => $n,
+        'surname' => $s
+    ]);
+})->name("home");
+
+
+// Route::get(uri, callback {
+//     return view('view name');
+// })->name(named route);
