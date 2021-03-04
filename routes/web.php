@@ -34,3 +34,14 @@ Route::get('/home/{name?}/{surname?}', function ($n = "Alberto", $s = "Sánchez"
 // Route::get(uri, callback {
 //     return view('view name');
 // })->name(named route);
+
+
+Route::get('/loop', function () {
+    $posts = ["post1", "post2", "post3", "post4"];
+    $posts2 = [];
+
+    return view('loopfor', [
+        'postarray' => $posts,
+        'emptyarray' => $posts2
+    ]);
+});
