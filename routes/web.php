@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\dashboard\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,11 @@ Route::get('/loop', function () {
         'emptyarray' => $posts2
     ]);
 });
+
+// Route::get('post', [PostController::class, 'index']);
+// Route::get('posts', [App\Http\Controllers\PostController::class, 'index']);
+// Si lo hacemos de esta forma, como una ruta absoluta, no es necesario hacer el import
+
+
+
+Route::resource('post', PostController::class);
