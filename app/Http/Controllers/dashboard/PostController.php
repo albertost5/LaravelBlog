@@ -37,7 +37,23 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return "HOLA MUNDO";
+        // DOS FORMAS DE UTILIZAR EL REQUEST:
+        //  $request->input('name');
+        // $request->name;
+        
+        // $title = $request->title;
+        // $url = $request->input('url');
+        // $content = $request->input('contet');
+
+        // echo dd($request->all());
+        
+
+        $request->validate([
+            'title' => 'required|min:5|max:50',
+            'content' => 'required|min:5',
+        ]);
+
+        echo "Hola mundo: ".$request->url;
     }
 
     /**
