@@ -24,7 +24,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return "Crear nuevo post";
+        // return view('prueba');
+        
     }
 
     /**
@@ -35,7 +36,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "HOLA MUNDO";
     }
 
     /**
