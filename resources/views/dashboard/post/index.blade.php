@@ -6,8 +6,10 @@
 @section('content')
     <h3 class="text-center">POST´S INDEX</h3>
 
-    <a href="{{ route('post.create') }}" class="btn btn-primary btn-sm">NUEVO POST</a>
+    @include('dashboard.partials.success')
 
+    <a href="{{ route('post.create') }}" class="btn btn-primary btn-sm">Nuevo Post</a>
+    
     <table class="table table-dark mt-5">
         <thead>
             <tr>
@@ -30,10 +32,19 @@
                     <td>{{ $p->posted }}</td>
                     <td>{{ $p->created_at->format('d-m-Y') }}</td>
                     <td>{{ date('d-m-Y', strtotime($p->updated_at)) }}</td>
-                    <td></td>
+                    <td>
+                        <a href="{{ route('post.show', $p->id) }}" class="btn btn-primary btn-sm">Ver</a>
+                        <a href="{{ route('post.edit', $p) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{{ route('post.destroy', $p) }}" method="POST" name="updatepost">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    
+
+    {{ $posts->links() }}
 @endsection
