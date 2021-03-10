@@ -16,20 +16,20 @@ use App\Http\Controllers\dashboard\PostController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 
-Route::get('/home/{name?}/{surname?}', function ($n = "Alberto", $s = "Sánchez") {
+// Route::get('/home/{name?}/{surname?}', function ($n = "Alberto", $s = "Sánchez") {
 
-    // return view('home')
-    //     ->with("name", $n)
-    //     ->with("surname", $s);
+//     // return view('home')
+//     //     ->with("name", $n)
+//     //     ->with("surname", $s);
 
-    return view('home', [
-        'name' => $n,
-        'surname' => $s
-    ]);
-})->name("home");
+//     return view('home', [
+//         'name' => $n,
+//         'surname' => $s
+//     ]);
+// })->name("home");
 
 
 // Route::get(uri, callback {

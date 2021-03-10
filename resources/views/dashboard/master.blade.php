@@ -10,7 +10,14 @@
 </head>
 
 <body>
-    @yield('body')
+    @include('dashboard.partials.nav-main')
+
+
+    <div class="container">
+        @yield('content')
+        
+    </div>
+
 
     @yield('script')
     <script src="{{ asset('js/app.js') }}"></script>

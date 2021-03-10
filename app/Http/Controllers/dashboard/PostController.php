@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostRequest;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class PostController extends Controller
@@ -15,7 +17,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        return "Hola mundo resources";
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        
+        // dd($posts);
+
+        return view('dashboard.post.index',['posts' => $posts]);
     }
 
     /**
@@ -35,7 +41,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         // DOS FORMAS DE UTILIZAR EL REQUEST:
         //  $request->input('name');
@@ -46,14 +52,14 @@ class PostController extends Controller
         // $content = $request->input('contet');
 
         // echo dd($request->all());
+    
+        // $request->validate([
+        // para evitar esta forma de validación existe la validación del formulario mediante un php artisan make:request StoreClassNameRequest
+        // ]);
+        Post::create($request->validated());
         
-
-        $request->validate([
-            'title' => 'required|min:5|max:50',
-            'content' => 'required|min:5',
-        ]);
-
-        echo "Hola mundo: ".$request->url;
+        return back()->with('status', 'Post creado con éxito');
+        
     }
 
     /**
