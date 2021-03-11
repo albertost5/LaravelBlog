@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboard\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\PostController;
 
@@ -54,3 +55,4 @@ Route::get('/loop', function () {
 
 
 Route::resource('dashboard/post', PostController::class);
+Route::resource('dashboard/category', CategoryController::class);
