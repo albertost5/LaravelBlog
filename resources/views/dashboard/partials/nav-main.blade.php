@@ -13,8 +13,8 @@
                     CRUD
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('post.index') }}">Posts Index</a>
-                    <a class="dropdown-item" href="{{ route('category.index') }}">Categories Index</a>
+                    <a class="dropdown-item" href="{{ route('post.index') }}">Posts</a>
+                    <a class="dropdown-item" href="{{ route('category.index') }}">Categories</a>
                 </div>
             </li>
         </ul>

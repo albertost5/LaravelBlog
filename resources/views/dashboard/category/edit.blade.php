@@ -9,7 +9,7 @@
 
     @include('dashboard.partials.success')
     
-    <form action="{{ route('category.update', $category) }}" method="POST" name="updatecategory">
+    <form action="{{ route('category.update', $category->id) }}" method="POST" name="updatecategory">
         @method('PUT')
         @include('dashboard.category.form._categoryform')
     </form>
