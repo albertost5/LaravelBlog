@@ -16,6 +16,7 @@
                 <th scope="col">#</th>
                 <th scope="col">ID</th>
                 <th scope="col">Título</th>
+                <th scope="col">Categoría</th>
                 <th scope="col">Publicado</th>
                 <th scope="col">Creación</th>
                 <th scope="col">Actualización</th>
@@ -29,6 +30,7 @@
                     <td></td>
                     <td>{{ $p->id }}</td>
                     <td>{{ $p->title }}</td>
+                    <td>{{ isset($p->category->title) ? $p->category->title : '-' }}</td>
                     <td>{{ $p->posted }}</td>
                     <td>{{ $p->created_at->format('d-m-Y') }}</td>
                     <td>{{ date('d-m-Y', strtotime($p->updated_at)) }}</td>
