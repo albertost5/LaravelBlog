@@ -56,4 +56,12 @@
         @enderror
     </div>
 
+    @isset($p->img)
+        <div class="row text-center">
+            <div class="col">
+                <img src={{ asset('images/' . $p->img->image) }} width="200" height="200">
+            </div>
+        </div>
+    @endisset
+
 @endsection

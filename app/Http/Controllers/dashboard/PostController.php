@@ -4,7 +4,9 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\PostImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -86,6 +88,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::pluck('id', 'title');
+        // $lastPostImage =  PostImage::orderBy('created_at', 'desc')->first();
         return view('dashboard.post.edit', ['p' => $post, 'categories' => $categories]);
     }
 
@@ -101,6 +104,31 @@ class PostController extends Controller
         $post->update($request->validated());
 
         return back()->with('status', 'Post actualizado con éxito');
+    }
+
+    /**
+     * Update the post's image.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function image(Request $request, Post $post)
+    {
+        $request->validate([
+            'image' => 'required|mimes:jpg,bmp,png|max:10240' //10 Mb, se indica en kBp
+        ]);
+        
+        $filename = time() . "." . $request->image->extension();
+        $request->image->move(public_path('images'), $filename);
+
+        DB::table('post_images')->where('post_id', '=', $post->id)->delete();
+
+        PostImage::create(['image' => $filename, 'post_id' => $post->id ]);
+        // $name = $request->file('image')->getClientOriginalName();
+        // $extension = $request->file('image')->extension();
+
+        return back()->with('status', 'Imagen subida con éxito');
     }
 
     /**
