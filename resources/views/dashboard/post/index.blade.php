@@ -37,7 +37,11 @@
                     <td>
                         <a href="{{ route('post.show', $p->id) }}" class="btn btn-primary btn-sm">Ver</a>
                         <a href="{{ route('post.edit', $p) }}" class="btn btn-warning btn-sm">Editar</a>
-                        <form action="{{ route('post.destroy', $p) }}" method="POST" name="updatepost">
+                        <a class="btn btn-danger btn-sm" href="{{ route('post.destroy', $p) }}" onclick="event.preventDefault();
+                                                                 document.getElementById('updatepost').submit();">
+                                {{ __('Borrar') }}
+                            </a>
+                        <form action="{{ route('post.destroy', $p) }}" method="POST" name="updatepost" id="updatepost" class="d-none">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
