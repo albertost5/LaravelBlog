@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\dashboard\CategoryController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\PostController;
+use App\Http\Controllers\dashboard\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\dashboard\PostController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('welcome');
 
 
 // Route::get('/home/{name?}/{surname?}', function ($n = "Alberto", $s = "Sánchez") {

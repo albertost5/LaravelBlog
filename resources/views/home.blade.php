@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title','Blog - Home')
+    
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,7 +18,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ auth()->user()->name . __(' you are logged in!') }}
                 </div>
             </div>
         </div>
