@@ -58,3 +58,7 @@ Route::resource('dashboard/post', PostController::class);
 Route::resource('dashboard/category', CategoryController::class);
 
 Route::post('dashboard/post/{post}/image', [PostController::class, 'image'])->name('post.image');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
