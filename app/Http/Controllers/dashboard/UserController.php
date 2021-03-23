@@ -57,7 +57,11 @@ class UserController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return back()->with('status', 'Usuario creada con éxito.');
+        // $user = new User();
+        // $user->name = $request['name'];
+        // $user->save();
+
+        return back()->with('status', 'User created successfully!');
     }
 
     /**
@@ -97,7 +101,7 @@ class UserController extends Controller
             'email' => $request['email'],
         ]);
 
-        return back()->with('status', 'Usuario actualizada con éxito.');
+        return back()->with('status', 'User updated successfully!');
     }
 
     /**
@@ -109,6 +113,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return back()->with('status', 'Usuario eliminada con éxito.');
+        return back()->with('status', 'User deleted sucessfully!');
     }
 }

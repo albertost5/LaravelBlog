@@ -56,11 +56,11 @@ Route::get('/loop', function () {
 
 
 
-Route::resource('dashboard/post', PostController::class);
-Route::resource('dashboard/category', CategoryController::class);
-Route::resource('dashboard/user', UserController::class);
+Route::resource('dashboard/posts', PostController::class);
+Route::resource('dashboard/categories', CategoryController::class);
+Route::resource('dashboard/users', UserController::class);
 
-Route::post('dashboard/post/{post}/image', [PostController::class, 'image'])->name('post.image');
+Route::post('dashboard/post/{post}/image', [PostController::class, 'image'])->name('posts.image');
 
 Auth::routes();
 

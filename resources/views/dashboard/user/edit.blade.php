@@ -1,6 +1,6 @@
 @extends('dashboard/master')
 
-@section('title', 'Editar Usuario ' . $user->id)
+@section('title', 'Edit Usuario ' . $user->id)
 
 
 @section('content')
@@ -9,7 +9,7 @@
 
     @include('dashboard.partials.success')
     
-    <form action="{{ route('user.update', $user->id) }}" method="POST" name="updatecategory">
+    <form action="{{ route('users.update', $user->id) }}" method="POST" name="updatecategory">
         @method('PUT')
         @include('dashboard.user.form._userform', ['pw' => false])
     </form>

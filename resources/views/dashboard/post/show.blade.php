@@ -11,7 +11,7 @@
     {{-- cross-site request forgery, se utiliza para evitar la falsificación de solicitudes entre sitios -> EXPLOIT --}}
     <div class="form-grop">
         {{-- El for, activa el foco en el elemento establecido mediante el id que se escriba --}}
-        <label for="title">Título</label>
+        <label for="title">Title</label>
         {{-- old('idinput') --}}
         <input class="form-control" type="text" name="title" id="title" value="{{ $p->title }}" readonly>
         @error('title')
@@ -21,7 +21,7 @@
     </div>
 
     <div class="form-grop">
-        <label for="url_clean">Url limpia</label>
+        <label for="url_clean">Clean Url</label>
         <input class="form-control" type="text" name="url_clean" id="url_clean" value="{{ $p->url_clean }}" readonly>
         @error('url_clean')
             <small class="text-danger">{{ $message }}</small>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="form-group">
-        <label for="">Categoría</label>
+        <label for="">Category</label>
         <select class="form-control" name="category_id" id="category_id" disabled>
             @foreach ($categories as $title => $id)
                 <option {{ $p->category_id == $id ? 'selected="selected"' : '' }} value="{{ $id }}">
@@ -47,7 +47,7 @@
     </div>
 
     <div class="form-group">
-        <label for="content">Contenido</label>
+        <label for="content">Content</label>
         <textarea class="form-control" id="content" rows="3" name="content" id="content"
             readonly>{{ $p->content }}</textarea>
         @error('content')

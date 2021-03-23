@@ -1,15 +1,15 @@
 @extends('dashboard/master')
 
-@section('title', 'Editar Post ' . $p->id)
+@section('title', 'Edit Post ' . $p->id)
 
 
 @section('content')
 
-    <h3 class="text-center mt-5">EDITAR POST Nº {{ $p->id }}</h3>
+    <h3 class="text-center mt-5">EDIT POST Nº {{ $p->id }}</h3>
 
     @include('dashboard.partials.success')
 
-    <form action="{{ route('post.update', $p->id) }}" method="POST" name="updatepost">
+    <form action="{{ route('posts.update', $p->id) }}" method="POST" name="updatepost">
         @method('PUT')
         @include('dashboard.post.form._postform')
     </form>
@@ -22,7 +22,7 @@
         </div>
     @endisset
 
-    <form action="{{ route('post.image', $p) }}" method="post" enctype="multipart/form-data" class="mt-5" name="updateimg">
+    <form action="{{ route('posts.image', $p) }}" method="post" enctype="multipart/form-data" class="mt-5" name="updateimg">
         @csrf
         <div class="row">
             <div class="col">

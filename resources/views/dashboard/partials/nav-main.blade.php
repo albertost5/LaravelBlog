@@ -13,9 +13,9 @@
                     CRUD
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('post.index') }}">Posts</a>
-                    <a class="dropdown-item" href="{{ route('category.index') }}">Categories</a>
-                    <a class="dropdown-item" href="{{ route('user.index') }}">Users</a>
+                    <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
+                    <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
+                    <a class="dropdown-item" href="{{ route('users.index') }}">Users</a>
                 </div>
             </li>
         </ul>
@@ -25,7 +25,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        Perfil
+                        {{ auth()->user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="">Actions</a>

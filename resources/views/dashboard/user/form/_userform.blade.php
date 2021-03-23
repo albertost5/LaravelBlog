@@ -2,7 +2,7 @@
 {{-- cross-site request forgery, se utiliza para evitar la falsificación de solicitudes entre sitios -> EXPLOIT --}}
 <div class="form-grop">
     {{-- El for, activa el foco en el elemento establecido mediante el id que se escriba --}}
-    <label for="name">Nombre</label>
+    <label for="name">Name</label>
     {{-- old('idinput') --}}
     <input class="form-control" type="text" name="name" id="name" value="{{ old('name', $user->name) }}">
     @error('name')
@@ -10,7 +10,7 @@
         <br />
     @enderror
 
-    <label for="surname">Apellido</label>
+    <label for="surname">Surname</label>
     {{-- old('idinput') --}}
     <input class="form-control" type="text" name="surname" id="surname" value="{{ old('surname', $user->surname) }}">
     @error('surname')
@@ -41,4 +41,4 @@
 
 </div>
 
-<button class="btn btn-primary mt-3" type="submit">Enviar</button>
+<button class="btn btn-primary mt-3" type="submit">Send</button>

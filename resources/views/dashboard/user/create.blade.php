@@ -10,7 +10,7 @@
 
     @include('dashboard.partials.success')
     
-    <form action="{{ route('user.store') }}" method="POST" name="createuser">
+    <form action="{{ route('users.store') }}" method="POST" name="createuser">
         @include('dashboard.user.form._userform', ['pw' => true])
     </form>
     

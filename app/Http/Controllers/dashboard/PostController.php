@@ -73,7 +73,7 @@ class PostController extends Controller
         // ]);
         Post::create($request->validated());
 
-        return back()->with('status', 'Post creado con éxito');
+        return back()->with('status', 'Post created sucessfully!');
     }
 
     /**
@@ -115,7 +115,7 @@ class PostController extends Controller
     {
         $post->update($request->validated());
 
-        return back()->with('status', 'Post actualizado con éxito');
+        return back()->with('status', 'Post updated successfully');
     }
 
     /**
@@ -140,7 +140,7 @@ class PostController extends Controller
         // $name = $request->file('image')->getClientOriginalName();
         // $extension = $request->file('image')->extension();
 
-        return back()->with('status', 'Imagen subida con éxito');
+        return back()->with('status', 'Imagen uploaded succesfully!');
     }
 
     /**
@@ -152,6 +152,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return back()->with('status', 'Post eliminado con éxito');
+        return back()->with('status', 'Post deleted succesfully!');
     }
 }

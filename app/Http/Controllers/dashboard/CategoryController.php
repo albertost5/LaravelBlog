@@ -50,7 +50,7 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         Category::create($request->validated());
-        return back()->with('status', 'Categoría creada con éxito.');
+        return back()->with('status', 'Category created successfully!');
     }
 
     /**
@@ -86,7 +86,7 @@ class CategoryController extends Controller
     {
         $category->update($request->validated());
 
-        return back()->with('status', 'Categoría actualizada con éxito.');
+        return back()->with('status', 'Category updated successfully!');
     }
 
     /**
@@ -98,6 +98,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return back()->with('status', 'Categoría eliminada con éxito.');
+        return back()->with('status', 'Category deleted sucessfully!');
     }
 }
