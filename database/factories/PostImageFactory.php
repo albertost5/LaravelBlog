@@ -24,7 +24,7 @@ class PostImageFactory extends Factory
     {
         return [
             'post_id' => Post::all()->random(),
-            'image' => "Prueba.png"
+            'image' => "Prueba".random_int(1,20).".png",
         ];
     }
 }

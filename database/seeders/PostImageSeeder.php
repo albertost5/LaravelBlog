@@ -16,6 +16,6 @@ class PostImageSeeder extends Seeder
     {
         PostImage::truncate();
 
-        PostImage::factory(2)->create();
+        PostImage::factory(20)->create();
     }
 }
