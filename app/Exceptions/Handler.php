@@ -2,11 +2,16 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use App\Traits\ApiResponse;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
+    use ApiResponse;
     /**
      * A list of the exception types that are not reported.
      *
@@ -35,7 +40,18 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+            
+        });
+
+        $this->renderable(function (Throwable $e) {
+
+            if(env('APP_ENV') == 'local'){
+                if($e instanceof NotFoundHttpException){
+                    return $this->errorResponse('BAD', 404, 'BAD');
+                }elseif($e instanceof ModelNotFoundException){
+                    return $this->errorResponse('NO RESOURCES', 404, 'NO RESOURCES');
+                }
+            }
         });
     }
 }

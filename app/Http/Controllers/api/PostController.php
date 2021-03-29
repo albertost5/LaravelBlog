@@ -29,7 +29,7 @@ class PostController extends ApiResponseController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Post  $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -39,6 +39,12 @@ class PostController extends ApiResponseController
         return $this->successResponse($post);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  Category  $category
+     * @return \Illuminate\Http\Response
+     */
     public function posts_categories(Category $category)
     {
         
@@ -47,5 +53,4 @@ class PostController extends ApiResponseController
             'category' => $category
         ]);
     }
-
 }

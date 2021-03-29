@@ -23,7 +23,6 @@ class CategoryController extends ApiResponseController
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         return $this->successResponse(Category::paginate(3));
